@@ -1,4 +1,5 @@
 import React from 'react'
+import CardWidget from './CardWidget'
 
 export const NavBar = () => {
   return (
@@ -42,7 +43,13 @@ export const NavBar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <a className="btn bg-emerald-500 border-emerald-500">Suscribirse</a>
+        <div className="colums-6 mr-4">
+          <CardWidget></CardWidget>
+        </div>
+
+        <div className="colums-6 ml-4">
+          <a className="btn bg-emerald-500 border-emerald-500">Suscribirse</a>
+        </div>
       </div>
     </div>
   )

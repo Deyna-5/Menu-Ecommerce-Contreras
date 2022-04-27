@@ -1,5 +1,5 @@
 import React from 'react'
-import ItemCount from './ItemCount'
+import ItemList from './ItemList'
 
 const ItemListContainer = (props) => {
 
@@ -9,7 +9,9 @@ const ItemListContainer = (props) => {
         <h1 className="text-5xl font-mono font-semibold text-emerald-600">{props.greeting}</h1>
       </div>
 
-      <ItemCount stock={15} initial={0} />
+      <h1>Listado Mangas</h1>
+
+      <ItemList></ItemList>
     </>
   )
 }

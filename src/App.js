@@ -1,7 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 import { NavBar } from './components/NavBar';
-import ItemListContainer from './components/ItemListContainer';
+import ItemDetailContainer from './components/ItemDetailContainer';
+// import ItemListContainer from './components/ItemListContainer';
 
 
 function App() {
@@ -9,7 +10,8 @@ function App() {
     <div className="App">
       <NavBar/>
 
-      <ItemListContainer greeting="Hola Bienvenido"></ItemListContainer>
+      {/* <ItemListContainer greeting="Hola Bienvenido"></ItemListContainer> */}
+      <ItemDetailContainer></ItemDetailContainer>
     </div>
   );
 }

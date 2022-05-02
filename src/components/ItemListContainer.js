@@ -11,7 +11,6 @@ const ItemListContainer = (props) => {
   }, [])
 
   const getMangas = () => {
-
     const getMangasPromise = new Promise((resolve) => {
       setTimeout(() => {
         resolve( mangasData )

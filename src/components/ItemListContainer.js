@@ -1,7 +1,26 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { mangasData } from '../data/mangasData'
 import ItemList from './ItemList'
 
 const ItemListContainer = (props) => {
+
+  const [mangas, setMangas] = useState([]);
+
+  useEffect(() => {
+    getMangas();
+  }, [])
+
+  const getMangas = () => {
+
+    const getMangasPromise = new Promise((resolve) => {
+      setTimeout(() => {
+        resolve( mangasData )
+      }, 2000)
+    })
+    getMangasPromise.then(result => {
+      setMangas( result )
+    });
+  }
 
   return (
     <>
@@ -11,7 +30,7 @@ const ItemListContainer = (props) => {
 
       <h1>Listado Mangas</h1>
 
-      <ItemList></ItemList>
+      <ItemList mangasList={mangas}></ItemList>
     </>
   )
 }

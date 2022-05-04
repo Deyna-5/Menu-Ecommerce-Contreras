@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import ItemCount from './ItemCount'
 
 const Item = (props) => {
@@ -25,7 +26,7 @@ const Item = (props) => {
           </div>
 
           <div className='float-right'>
-            <a>Ver más</a>
+          <a><Link to={`/producto/${props.manga.id}`}>Ver más</Link></a>
           </div>
 
         </div>

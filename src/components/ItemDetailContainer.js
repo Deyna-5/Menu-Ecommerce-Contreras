@@ -1,25 +1,18 @@
 import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 import { mangasData } from '../data/mangasData'
 import ItemDetail from './ItemDetail'
 
 const ItemDetailContainer = () => {
 
+  const { productId } = useParams()
   const [manga, setManga] = useState([])
 
   useEffect(() => {
-    getManga();
-  }, [])
-
-  const getManga = () => {
-    const getMangaPromise = new Promise((resolve) => {
-      setTimeout(() => {
-        resolve(mangasData)
-      }, 2000)
-    })
-    getMangaPromise.then(result => {
-      setManga(result[Math.round(Math.random() * (5 - 0))])
-    })
-  }
+    setTimeout(() => {
+      setManga(mangasData.find(m => m.id == productId))
+    }, 2000)
+  }, [productId])
 
   return (
     <>

@@ -1,25 +1,33 @@
 import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 import { mangasData } from '../data/mangasData'
 import ItemList from './ItemList'
 
 const ItemListContainer = (props) => {
 
   const [mangas, setMangas] = useState([]);
+  const { categoryId } = useParams()
 
-  useEffect(() => {
-    getMangas();
-  }, [])
-
-  const getMangas = () => {
-    const getMangasPromise = new Promise((resolve) => {
+  const getMangas = (categoryId) => {
+    return new Promise((resolve) => {
       setTimeout(() => {
-        resolve( mangasData )
+        if(categoryId !== undefined){
+          const arrayfiltred = mangasData.filter((manga) => {
+            return manga.category === categoryId
+          })
+          resolve( arrayfiltred )
+        }else{
+          resolve( mangasData )
+        }
       }, 2000)
-    })
-    getMangasPromise.then(result => {
-      setMangas( result )
     });
   }
+
+  useEffect(() => {
+    getMangas(categoryId).then( getMangasPromise => {
+      setMangas(getMangasPromise)
+    });
+  }, [categoryId])
 
   return (
     <>

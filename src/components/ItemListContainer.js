@@ -1,31 +1,31 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { mangasData } from '../data/mangasData'
+import { productsData } from '../data/productsData'
 import ItemList from './ItemList'
 
 const ItemListContainer = (props) => {
 
-  const [mangas, setMangas] = useState([]);
+  const [products, setProducts] = useState([]);
   const { categoryId } = useParams()
 
-  const getMangas = (categoryId) => {
+  const getProducts = (categoryId) => {
     return new Promise((resolve) => {
       setTimeout(() => {
         if(categoryId !== undefined){
-          const arrayfiltred = mangasData.filter((manga) => {
-            return manga.category === categoryId
+          const arrayfiltred = productsData.filter((product) => {
+            return product.category === categoryId
           })
           resolve( arrayfiltred )
         }else{
-          resolve( mangasData )
+          resolve( productsData )
         }
       }, 2000)
     });
   }
 
   useEffect(() => {
-    getMangas(categoryId).then( getMangasPromise => {
-      setMangas(getMangasPromise)
+    getProducts(categoryId).then( getProductsPromise => {
+      setProducts(getProductsPromise)
     });
   }, [categoryId])
 
@@ -35,9 +35,7 @@ const ItemListContainer = (props) => {
         <h1 className="text-5xl font-mono font-semibold text-emerald-600">{props.greeting}</h1>
       </div>
 
-      <h1>Listado Mangas</h1>
-
-      <ItemList mangasList={mangas}></ItemList>
+      <ItemList productsList={products}></ItemList>
     </>
   )
 }

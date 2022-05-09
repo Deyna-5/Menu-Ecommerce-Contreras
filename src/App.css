@@ -41,3 +41,26 @@
   justify-content: center;
   align-items: center;
 }
+
+.plant-shop-logo{
+  color: #2D3740;
+}
+
+.card-widget-background{
+  background-color: #688F4E;
+}
+
+.div-header-color{
+  background-color: rgb(236, 242, 230);
+  position: relative;
+  top: -63px;
+  z-index: -1;
+}
+
+.img-landing{
+  position: relative;
+  width: 36rem;
+  right: 14rem;
+  max-width: none;
+  bottom: 2rem;
+}

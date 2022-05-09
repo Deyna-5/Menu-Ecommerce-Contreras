@@ -6,7 +6,7 @@ const ItemList = (props) => {
   return (
     <>
       <div className="grid grid-cols-3 gap-3 my-10">
-        {props.mangasList.map( m => <Item key={m.id} manga={m}></Item> )}
+        {props.productsList.map( p => <Item key={p.id} product={p}></Item> )}
       </div>
     </>
   )

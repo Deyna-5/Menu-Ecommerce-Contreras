@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const ItemCount = ({stock, initial}) => {
+const ItemCount = ({stock, initial, handlerAdd}) => {
 
   const [count, setcount] = useState(initial);
 
@@ -35,6 +35,12 @@ const ItemCount = ({stock, initial}) => {
           <button onClick={ restoreCount } className="btn bg-emerald-600 border-emerald-700">Restaurar</button>
           <button onClick={ subtractCount } className="btn bg-emerald-600 border-emerald-700">-</button>
         </div>
+
+        <button className="btn card-widget-background text-white" onClick={() => handlerAdd(count)}>
+          Agregar al carrito
+
+          <i className="fa fa-shopping-cart"></i>
+        </button>
       </div>
 
       

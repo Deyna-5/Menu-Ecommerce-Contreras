@@ -5,9 +5,7 @@ const ItemCount = ({stock, initial, handlerAdd}) => {
   const [count, setcount] = useState(initial);
 
   const addCount = () => {
-    if(count >= stock){
-      setcount(stock)
-    }else{
+    if(count < stock){
       setcount(count + 1);
     }
   };
@@ -24,6 +22,10 @@ const ItemCount = ({stock, initial, handlerAdd}) => {
     setcount(initial)
   };
 
+  const handleAdd = () => { 
+    handlerAdd(count)
+  }
+
   return (
     <>
       <div className='text-center my-3'>
@@ -36,7 +38,7 @@ const ItemCount = ({stock, initial, handlerAdd}) => {
           <button onClick={ subtractCount } className="btn bg-emerald-600 border-emerald-700">-</button>
         </div>
 
-        <button className="btn card-widget-background text-white" onClick={() => handlerAdd(count)}>
+        <button className="btn card-widget-background text-white" onClick={handleAdd}>
           Agregar al carrito
 
           <i className="fa fa-shopping-cart"></i>

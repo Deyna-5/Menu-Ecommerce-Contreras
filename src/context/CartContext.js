@@ -5,7 +5,10 @@ const useCartContext = () => useContext(CartContext);
 const { Provider } = CartContext; 
 
 export function CartContextProvider({children}){
+
   const [cart, setCart] = useState([]);
+  const [totalCount, setTotalCount] = useState(0);
+  const [totalPrice, setTotalPrice] = useState(0);
 
   // * Función para saber si el producto está en el carro
   const isInCart = (id) => { 
@@ -14,58 +17,50 @@ export function CartContextProvider({children}){
 
   // * Función para añadir al carro
   const addToCart = (item, count) => { 
-
     if(isInCart(item.id)){
-      console.log('SI ESTÁ EN EL CARRO')
-
       const newCart = cart.map(cartItem => {
         if(cartItem.id === item.id){
-          console.log('CANTIDAD =>', count)
-
           const copyItem = {...cartItem}
-          console.log('CANTIDAD PRODUCTO ACTUAL =>', copyItem.count)
-
           copyItem.count += count
-          console.log('CANTIDAD ACTUALIZADA =>', copyItem.count)
-
           return copyItem
-
         }else{
           return cartItem
         }
-      })
+      });
       setCart(newCart)
-
+  
     }else{
-      console.log('NO ESTÁ EN EL CARRO')
-
       const cartCopy = [...cart];
       const newItem = {...item, count};
 
       cartCopy.push(newItem)
       setCart(cartCopy)
     }
+    setTotalCount(totalCount + count)
+    setTotalPrice(totalPrice + (item.price * count))
   }
 
   // * Función para eliminar productos
-  const removeFromCart = (itemId) => { 
+  const removeFromCart = (recivedItem) => { 
     const copyCart = [...cart]
     const cartFiltered = copyCart.filter((item) => {
-      return item.id != itemId
+      return item.id != recivedItem.id
     })
 
     setCart(cartFiltered)
+    setTotalCount(totalCount - recivedItem.count)
+    setTotalPrice(totalPrice - (recivedItem.price * recivedItem.count))
   }
 
   // * Función para limpiar el carrito
   const clearCart = () => { 
     setCart([])
+    setTotalCount(0)
+    setTotalPrice(0)
   }
 
-  console.log('CARRITO ACTUALMENTE =>', cart)
-
   return(
-    <Provider value={{cart, addToCart, removeFromCart, clearCart}}>
+    <Provider value={{cart, addToCart, removeFromCart, clearCart, totalCount, totalPrice}}>
       {children}
     </Provider>
   )

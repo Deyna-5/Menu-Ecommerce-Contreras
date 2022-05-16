@@ -21,6 +21,7 @@ export const NavBar = () => {
               <ul className="p-2">
                 <li><Link to="/categoria/Cactus">Cactus</Link></li>
                 <li><Link to="/categoria/Macetas">Macetas</Link></li>
+                <li><Link to="/todo">Ver todo</Link></li>
               </ul>
             </li>
             <li><a className="btn btn-ghost text-slate-500">SOBRE NOSTROS</a></li>

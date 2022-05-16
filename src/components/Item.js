@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import ItemCount from './ItemCount'
 
 const Item = (props) => {
 
@@ -14,10 +13,6 @@ const Item = (props) => {
           <div>
             <strong className="inline">Precio: </strong>
             <p className="inline">{props.product.price}</p>
-          </div>
-
-          <div>
-            <ItemCount stock={15} initial={0} />
           </div>
 
           <div className='float-right'>

@@ -1,32 +1,40 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { productsData } from '../data/productsData'
+// import { productsData } from '../data/productsData'
 import ItemList from './ItemList'
+import { getAllProducts as getProducts, getProductsByCategory } from '../data/Firebase'
 
 const ItemListContainer = (props) => {
 
   const [products, setProducts] = useState([]);
   const { categoryId } = useParams()
 
-  const getProducts = (categoryId) => {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        if(categoryId !== undefined){
-          const arrayfiltred = productsData.filter((product) => {
-            return product.category === categoryId
-          })
-          resolve( arrayfiltred )
-        }else{
-          resolve( productsData )
-        }
-      }, 2000)
-    });
-  }
+  // const getProducts = (categoryId) => {
+  //   return new Promise((resolve) => {
+  //     setTimeout(() => {
+  //       if(categoryId !== undefined){
+  //         const arrayfiltred = productsData.filter((product) => {
+  //           return product.category === categoryId
+  //         })
+  //         resolve( arrayfiltred )
+  //       }else{
+  //         resolve( productsData )
+  //       }
+  //     }, 2000)
+  //   });
+  // }
 
   useEffect(() => {
-    getProducts(categoryId).then( getProductsPromise => {
-      setProducts(getProductsPromise)
-    });
+    if(categoryId === undefined){
+      getProducts().then( getProductsPromise => {
+        setProducts(getProductsPromise)
+      });
+    }
+    else{
+      getProductsByCategory(categoryId).then( getProductsPromise => {
+        setProducts(getProductsPromise)
+      });
+    }
   }, [categoryId])
 
   return (

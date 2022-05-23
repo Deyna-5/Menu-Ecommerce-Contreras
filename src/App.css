@@ -64,3 +64,8 @@
   max-width: none;
   bottom: 2rem;
 }
+
+.navbar-ul{
+  z-index: 1000;
+  background: white;
+}

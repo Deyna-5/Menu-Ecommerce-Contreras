@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
-import { collection, doc, getDoc, getDocs, getFirestore, query, where } from "firebase/firestore/lite"
+import { collection, doc, getDoc, getDocs, getFirestore, query, setDoc, where, Timestamp, addDoc } from "firebase/firestore/lite"
+import { productsData } from "./productsData";
 
 const firebaseConfig = {
   apiKey: "AIzaSyA4FEpQjN47aM7inc0CSD1Lc96SjpNmpg8",
@@ -11,12 +12,12 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const firestoreDB = getFirestore(app);
+export const firestoreDB = getFirestore(app);
 
 export async function getAllProducts() { 
-  const myColection = collection(firestoreDB, 'products');
+  const myCollection = collection(firestoreDB, 'products');
 
-  const productsSnap = await getDocs(myColection);
+  const productsSnap = await getDocs(myCollection);
   
   return productsSnap.docs.map(doc => {
     return{
@@ -27,9 +28,9 @@ export async function getAllProducts() {
 }
 
 export async function getProductsByCategory(categoryId){
-  const myColection = collection(firestoreDB, 'products');
+  const myCollection = collection(firestoreDB, 'products');
 
-  const queryData = query(myColection, where('category', '==', categoryId))
+  const queryData = query(myCollection, where('category', '==', categoryId))
   const productsSnap = await getDocs(queryData);
   
   return productsSnap.docs.map(doc => {
@@ -41,9 +42,9 @@ export async function getProductsByCategory(categoryId){
 }
 
 export async function getProductById(productId){
-  const myColection = collection(firestoreDB, 'products');
+  const myCollection = collection(firestoreDB, 'products');
 
-  const productRef = doc(myColection, productId);
+  const productRef = doc(myCollection, productId);
   const productsSnap = await getDoc(productRef);
   
   return{
@@ -51,5 +52,32 @@ export async function getProductById(productId){
     id: productsSnap.id
   }
 }
+
+export async function sendDataToFirebase(){
+  const data = productsData
+
+  const myCollection = collection(firestoreDB, 'products');
+
+  data.forEach((product) => {
+    const newDoc = doc(myCollection);
+    setDoc(newDoc, product)
+      .then(() => {
+        console.log('Document written with id:', newDoc.id)
+      })
+      .catch(err => {
+        HTMLFormControlsCollection.log('Errpr adding product', err);
+      });
+  });
+}
+
+// export async function createBuyOrder(buyOrder){
+//   const buyTimestap = Timestamp.now();
+//   const orderWithDate = {...buyOrder, date: buyTimestap}
+
+//   const myCollection = collection(firestoreDB, 'orders');
+//   const orderDoc = await addDoc(myCollection, orderWithDate);
+
+//   // return orderDoc.id
+// }
 
 export default firestoreDB

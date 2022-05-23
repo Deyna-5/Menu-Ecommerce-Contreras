@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 // import { productsData } from '../data/productsData'
 import ItemList from './ItemList'
-import { getAllProducts as getProducts, getProductsByCategory } from '../data/Firebase'
+import { getAllProducts as getProducts, getProductsByCategory, sendDataToFirebase } from '../data/Firebase'
 
 const ItemListContainer = (props) => {
 
@@ -44,6 +44,8 @@ const ItemListContainer = (props) => {
       </div>
 
       <ItemList productsList={products}></ItemList>
+
+      {/* <button onClick={sendDataToFirebase}>Send data</button> */}
     </>
   )
 }

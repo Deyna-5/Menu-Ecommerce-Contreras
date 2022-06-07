@@ -1,5 +1,6 @@
 import React from 'react'
 import Header from './Header';
+import ItemListLanding from './ItemListLanding';
 import ProductsCategory from './ProductsCategory';
 
 const Landing = () => {
@@ -7,10 +8,7 @@ const Landing = () => {
     <>
       <Header word="Plantar"></Header>
       <ProductsCategory></ProductsCategory>
-
-      <div className='mt-10'>
-        <h1>HOLA</h1>
-      </div>
+      <ItemListLanding></ItemListLanding>
     </>
   )
 }

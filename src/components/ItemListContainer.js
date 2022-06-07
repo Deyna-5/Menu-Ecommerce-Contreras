@@ -43,7 +43,15 @@ const ItemListContainer = (props) => {
         <h1 className="text-5xl font-mono font-semibold text-emerald-600">{props.greeting}</h1>
       </div>
 
-      <ItemList productsList={products}></ItemList>
+      <div className='grid grid-cols-12'>
+        <div className='col-span-1'></div>
+
+        <div className='col-span-10'>
+          <ItemList productsList={products}></ItemList>
+        </div>
+
+        <div className='col-span-1'></div>
+      </div>
 
       {/* <button onClick={sendDataToFirebase}>Send data</button> */}
     </>

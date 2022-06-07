@@ -13,11 +13,11 @@ const ProductsCategory = () => {
         </h1>
       </div>
       
-      <div className="grid grid-cols-12">
+      <div className="grid grid-cols-12 mb-20">
         <div className='col-span-1'></div>
 
         <div className='col-span-10'>
-          <div className="grid grid-rows-4  grid-flow-col gap-4">
+          <div className="grid grid-rows-4 grid-flow-col gap-4">
             <div className="row-span-4 all-products-section">
               <Link to="/todo">
                 <div>
@@ -30,7 +30,7 @@ const ProductsCategory = () => {
             </div>
 
             <div className="row-span-2 just-pottery-section">
-              <Link to="/categoria/Cactus">
+              <Link to="/categoria/Macetas">
                 <div>
                   <h2 className='font-bold text-4xl tracking-wide font-serif text-slate-700'>
                     MACETAS
@@ -41,7 +41,7 @@ const ProductsCategory = () => {
             </div>
 
             <div className="row-span-2 just-plants-section">
-              <Link to="/categoria/Macetas">
+              <Link to="/categoria/Cactus">
                 <div>
                   <h2 className='font-bold text-4xl tracking-wide font-serif text-slate-700'>
                     PLANTAS

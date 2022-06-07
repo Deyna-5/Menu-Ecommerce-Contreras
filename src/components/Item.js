@@ -5,20 +5,28 @@ const Item = (props) => {
 
   return (
     <>
-      <div className="border-solid border-slate-300 card card-side bg-base-100 shadow-xl px-10" style={{width: "50% !important"}}>
-        <figure><img style={{height: "12rem", width: "9rem"}} src={props.product.img} alt={props.product.title} /></figure>
-        <div className="card-body text-center">
-          <h2 className="card-title ml-16">{props.product.title}</h2>
-
-          <div>
-            <strong className="inline">Precio: </strong>
-            <p className="inline">{props.product.price}</p>
+      <div>
+        <div className="grid grid-cols-4 gap-3 card-style my-2">
+          <div className='col-span-4 flex justify-center'>
+            <figure><img className='item-image' src={props.product.img} alt={props.product.title} /></figure>
           </div>
 
-          <div className='float-right'>
-          <a><Link to={`/producto/${props.product.id}`}>Ver más</Link></a>
-          </div>
+          <div className='col-span-4'>
 
+            <div className='d-block text-center mt-5 mb-2'>
+              <h3 className="font-bold text-1xl tracking-wide font-serif text-slate-700">{props.product.title}</h3>
+            </div>
+
+            <div className='text-center mb-5'>
+              <small className="inline special-font-color mr-4">Precio: </small>
+              <p className="font-bold text-lg tracking-wide text-slate-700 special-font-color inline">${props.product.price}</p>
+            </div>
+
+            <div className='text-right mr-5'>
+              <a className='special-font-color'><Link to={`/producto/${props.product.id}`}>Ver más...</Link></a>
+            </div>
+            
+          </div>
         </div>
       </div>
     </>

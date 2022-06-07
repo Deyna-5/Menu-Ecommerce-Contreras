@@ -6,9 +6,9 @@ const Header = (props) => {
     <>
       <div className="grid grid-cols-12">
 
-        <div className='col-span-1'></div>
+        <div className='col-span-1 header-default-color'></div>
 
-        <div className='col-span-7 px-32 py-20'>
+        <div className='col-span-7 px-32 header-default-color landing-principal-text'>
           <div className='text-left my-10'>
             <h1 className='font-bold text-6xl tracking-wide font-serif text-slate-700'>
               Sientete Libre De <span style={{color: "#76935D"}}>{props.word}</span> Nuevos Sueños
@@ -30,7 +30,7 @@ const Header = (props) => {
           <img className="img-landing" src={imageLanding}></img>
         </div>
 
-        <div className='col-span-1'></div>
+        <div className='col-span-1 header-default-color'></div>
 
       </div>
     </>

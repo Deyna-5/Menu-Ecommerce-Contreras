@@ -1,11 +1,11 @@
-import './App.css';
+import './App.scss';
 import { NavBar } from './components/NavBar';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import ItemListContainer from './components/ItemListContainer';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Header from './components/Header';
 import Cart from './components/Cart';
 import {CartContextProvider} from './context/CartContext'
+import Landing from './components/Landing';
 
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
       <BrowserRouter>
         <NavBar/>
         <Routes>
-          <Route path='/' element={<Header word="Plantar"></Header>}></Route>
+          <Route path='/' element={<Landing></Landing>}></Route>
 
           <Route path='/categoria/:categoryId' element={<ItemListContainer greeting="Categorías"></ItemListContainer>}></Route>
           <Route path='/producto/:productId' element={<ItemDetailContainer></ItemDetailContainer>}></Route>

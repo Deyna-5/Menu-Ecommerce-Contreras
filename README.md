@@ -9,11 +9,10 @@ Estas instrucciones te permitirán obtener una copia del proyecto en funcionamie
 2. Inicializar con 'npm start'
 
 ## Cosas pendientes:
-1. Sección Categorias (En el landing)
-  1. Mejorar Vista ItemListContainer > ItemList > Item
-  2. Mejorar vista ItemDetailContainer > ItemDetail
-2. Crear sección "Sobre Nosotros"
-3. Crear Sección de Contacto
-4. Crear Footer
+1. Mejorar ItemDetail.js y ItemCount.js
+2. Mejorar Card.js y CardItem.js
+3. Agregar Spinner durante la carga
+4. Crear si es posible autenticación
+5. Hacer deploy
 
 **Creado por** *Deyna Contreras* 

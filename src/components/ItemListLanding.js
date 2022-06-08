@@ -27,7 +27,7 @@ const ItemListLanding = () => {
         </h1>
       </div>
 
-      <div className="grid grid-cols-12 mb-20">
+      <div className="grid grid-cols-12 mb-5">
         <div className='col-span-1'></div>
 
         <div className='col-span-10'>

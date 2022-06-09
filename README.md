@@ -9,10 +9,8 @@ Estas instrucciones te permitirán obtener una copia del proyecto en funcionamie
 2. Inicializar con 'npm start'
 
 ## Cosas pendientes:
-1. Mejorar ItemDetail.js y ItemCount.js
-2. Mejorar Card.js y CardItem.js
-3. Agregar Spinner durante la carga
-4. Crear si es posible autenticación
-5. Hacer deploy
+1. Agregar Spinner durante la carga
+2. Crear si es posible autenticación
+3. Hacer deploy
 
 **Creado por** *Deyna Contreras* 

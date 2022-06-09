@@ -28,23 +28,22 @@ const ItemCount = ({stock, initial, handlerAdd}) => {
 
   return (
     <>
-      <div className='text-center my-3'>
-        <h2 className='text-xl antialiased font-light tracking-wide'>Cantidad</h2>
-        <h3 className='text-2xl antialiased font-semibold'>{count}</h3>
+      <div className='float-left'>
+        <div className='block'>
+          <div className='inline mr-3' id='item-count-btn-group'>
+            <button onClick={ addCount }>+</button>
+            <div>{count}</div>
+            <button onClick={ subtractCount }>-</button>
+          </div>
 
-        <div className="btn-group my-2">
-          <button onClick={ addCount } className="btn bg-emerald-600 border-emerald-700">+</button>
-          <button onClick={ restoreCount } className="btn bg-emerald-600 border-emerald-700">Restaurar</button>
-          <button onClick={ subtractCount } className="btn bg-emerald-600 border-emerald-700">-</button>
+          <p className='inline font-light tracking-wider leading-relaxed'>¡Últimas {stock} unidades!</p>
         </div>
 
-        <button className="btn card-widget-background text-white" onClick={handleAdd}>
-          Agregar al carrito
-
-          <i className="fa fa-shopping-cart"></i>
-        </button>
+        <div className='block mt-5' id='item-count-aditiona-buttons'>
+          <button className='mr-3' onClick={ restoreCount }>Restaurar</button>
+          <button onClick={handleAdd}>Agregar al carrito <i className="fa fa-shopping-cart"></i></button>
+        </div>
       </div>
-
       
     </>
   )

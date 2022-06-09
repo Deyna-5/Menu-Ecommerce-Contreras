@@ -1,3 +1,5 @@
+// VARIABLES
+$hightlightColor: #688F4E;
 
 .btn-group{
   justify-content: center;
@@ -9,7 +11,7 @@
 }
 
 .card-widget-background{
-  background-color: #688F4E;
+  background-color: $hightlightColor;
 }
 
 .div-header-color{
@@ -125,7 +127,7 @@
 }
 
 .special-font-color{
-  color: #688F4E;
+  color: $hightlightColor;
 }
 
 .card-style{
@@ -141,5 +143,52 @@
   background-color: #F9F9F9;
   p:nth-of-type(1){
     width: 27rem;
+  }
+}
+
+// ITEM DETAIL
+
+#show-product{
+  border-top: 1px solid lightgray;
+  img{
+    width: 24rem;
+  }
+}
+
+#item-count-btn-group{
+  button{
+    display: inline;
+    padding: 0.5rem 1rem;
+    color: $hightlightColor;
+  }
+  button:nth-of-type(1){
+    border-left: 1px solid  $hightlightColor;
+    border-bottom: 1px solid  $hightlightColor;
+    border-top: 1px solid  $hightlightColor;
+    border-top-left-radius: 0.4rem;
+    border-bottom-left-radius: 0.4rem;
+  }
+  button:nth-of-type(2){
+    border-right: 1px solid  $hightlightColor;
+    border-bottom: 1px solid  $hightlightColor;
+    border-top: 1px solid  $hightlightColor;
+    border-top-right-radius: 0.4rem;
+    border-bottom-right-radius: 0.4rem;
+  }
+  div{
+    display: inline;
+    border-bottom: 1px solid  $hightlightColor;
+    border-top: 1px solid  $hightlightColor;
+    padding: 0.59rem 1rem;
+    color: $hightlightColor;
+  }
+}
+
+#item-count-aditiona-buttons{
+  button{
+    background-color: $hightlightColor;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.4rem;
   }
 }

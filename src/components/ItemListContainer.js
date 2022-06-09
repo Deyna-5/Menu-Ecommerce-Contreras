@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 import ItemList from './ItemList'
 import { getAllProducts as getProducts, getProductsByCategory, sendDataToFirebase } from '../data/Firebase'
 
-const ItemListContainer = (props) => {
+const ItemListContainer = () => {
 
   const [products, setProducts] = useState([]);
   const { categoryId } = useParams()
@@ -40,7 +40,7 @@ const ItemListContainer = (props) => {
   return (
     <>
       <div className="text-center mt-10">
-        <h1 className="text-5xl font-mono font-semibold text-emerald-600">{props.greeting}</h1>
+        <h1 className="font-bold text-4xl tracking-wide font-serif text-slate-700">{categoryId}</h1>
       </div>
 
       <div className='grid grid-cols-12'>

@@ -16,7 +16,7 @@ const Header = (props) => {
           </div>
           
           <div className='mt-10'>
-            <p className='leading-8 ffont-semibold text-left text-slate-600 text-lg tracking-wider'>
+            <p className='leading-8 font-normal text-left text-slate-600 text-lg tracking-wider'>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec elementum tortor. Vestibulum tristique, felis ut auctor ultrices, tortor nunc commodo lorem, id ullamcorper massa tortor ac leo. 
             </p>
           </div>

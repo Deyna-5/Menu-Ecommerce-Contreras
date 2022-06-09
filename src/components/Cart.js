@@ -8,7 +8,7 @@ import { collection, doc, setDoc, Timestamp } from "firebase/firestore/lite"
 import {firestoreDB} from "../data/Firebase"
 
 const Cart = () => {
-  const {cart, removeFromCart, clearCart, totalPrice} = useCartContext()
+  const {cart, removeFromCart, clearCart, totalPrice, totalCount} = useCartContext()
   const [cartOrderId, setcartOrderId] = useState(0);
 
   const handlerBuy = () => {
@@ -43,51 +43,118 @@ const Cart = () => {
 
   if(cart.length === 0 && cartOrderId == 0){
     return (
-    <div style={{textAlign: 'center'}}>
-      <h2>No hay items en el carrito</h2>
-      <button style={{backgroundColor: "#688F4E", border: "1px solid #688F4E"}} className="my-10 btn px-8 font-light"><Link to="/todo">Ver todo</Link></button>
-    </div>
+      <>
+        <div className="grid grid-cols-12 mt-4 py-20" id='invoice-show'>
+          <div className='col-span-1'></div>
+
+          <div className='col-span-10'>
+            <div style={{textAlign: 'center'}} className='special-font-color py-10 success-message'>
+              <h2>No hay items en el carrito</h2>
+
+              <div className='item-count-aditional-buttons mt-10'>
+                <button><Link to="/todo">Ver todo</Link></button>
+              </div>
+            </div>
+          </div>
+
+          <div className='col-span-1'></div>
+        </div>
+      </>
     )
   }else if(cart.length === 0 && cartOrderId != 0){
     return (
-      <div style={{textAlign: 'center'}} className='bg-emerald-300 border-emerald-300 text-white py-10'>
-        <h2>Felicidades por tu compra!</h2>
-        <h3>Tu número de orden es: {cartOrderId}</h3>
+      <div className="grid grid-cols-12 mt-4 py-20" id='invoice-show'>
+        <div className='col-span-1'></div>
 
-        <div>
-          <i className='far fa-thumbs-up mt-5' style={{fontSize: '60px'}}></i>
+        <div className='col-span-10'>
+          <div style={{textAlign: 'center'}} className='special-font-color py-10 success-message'>
+            <h2>Felicidades por tu compra!</h2>
+            <h3>Tu número de orden es: {cartOrderId}</h3>
+
+            <div>
+              <i className='far fa-thumbs-up mt-5' style={{fontSize: '60px'}}></i>
+            </div>
+
+            <div className='item-count-aditional-buttons mt-10'>
+              <button onClick={closeCheckout}>
+                Cerrar
+              </button>
+            </div>
+            
+          </div>
         </div>
 
-        <button className='btn mt-10 px-8 font-light bg-emerald-600 border-emerald-600 text-white' onClick={closeCheckout}>
-          Cerrar
-        </button>
+        <div className='col-span-1'></div>
       </div>
     )
   }else{
     return(
       <>
-        <div className="grid grid-cols-12">
-          {cart.map(itemCart => <CartItem key={itemCart.id} productCart={itemCart} removeFromCart={removeFromCart}></CartItem>)}
+        <div className="grid grid-cols-12 pt-4">
+          <div className='col-span-1'></div>
+
+          <div className='col-span-10 pt-10' id='cart-view'>
+            <table className="table w-full">
+              <thead>
+                <tr>
+                  <th className='font-semibold tracking-wider leading-relaxed'>Producto</th>
+                  <th className='font-semibold tracking-wider leading-relaxed text-center'>Precio</th>
+                  <th className='font-semibold tracking-wider leading-relaxed text-center'>Cantidad</th>
+                  <th className='font-semibold tracking-wider leading-relaxed text-center'>Subtotal</th>
+                  <th className='font-semibold tracking-wider leading-relaxed text-center'></th>
+                </tr>
+              </thead>
+              <tbody>
+                {cart.map(itemCart => <CartItem key={itemCart.id} productCart={itemCart} removeFromCart={removeFromCart}></CartItem>)}
+              </tbody>
+            </table>
+          </div>
+          
+
+          <div className='col-span-1'></div>
         </div>
 
-        <div className="bg-slate-200 border-slate-200 grid grid-cols-3 py-3">
-          <div className='col-span-1 pl-10'>
-            <p><span className='text-2xl font-semibold'>Total:</span> ${totalPrice}</p>
+        <div className="grid grid-cols-12 pb-20">
+          <div className='col-span-1'></div>
+
+          <div className='col-span-10'>
+            <div className='grid grid-cols-2'>
+              <div className='col-span-1 item-count-aditional-buttons mt-3'>
+                <button onClick={clearCart}>
+                  <i className='fas fa-trash-alt text-white mr-1'></i>
+                  Vaciar Carrito
+                </button>
+              </div>
+
+              <div className='col-span-1 mt-3'>
+                <div className='float-right cart-invoice'>
+                  <div className='d-block'>
+                    <p className='inline-block tracking-wider leading-relaxed text-left'>cantidad de items:</p>
+                    <p className='inline-block tracking-wider leading-relaxed text-right'>{totalCount}</p>
+                  </div>
+
+                  <div className='d-block'>
+                    <p className='inline-block tracking-wider leading-relaxed text-left'>gastos de envío:</p>
+                    <p className='inline-block tracking-wider leading-relaxed text-right'>¡envío gratis!</p>
+                  </div>
+
+                  <div className='d-block'>
+                    <p className='inline-block tracking-wider leading-relaxed text-left font-semibold'>TOTAL:</p>
+                    <p className='inline-block tracking-wider leading-relaxed text-right font-semibold'>$ {totalPrice}</p>
+                  </div>
+
+                  <div className='item-count-aditional-buttons mt-3'>
+                    <button className='btn-block' onClick={handlerBuy}>
+                      <i className='fa fa-check-circle text-white mr-1'></i>
+                      Finalizar Compra
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className='col-span-1'></div>
-
-          <div className='col-span-1 pr-10'>
-            <button className='float-right btn px-8 font-light bg-emerald-300 border-emerald-300 text-white' onClick={handlerBuy}>
-              <i className='fa fa-check-circle text-white mr-1'></i>
-              COMPRAR
-            </button>
-
-            <button className='float-right btn px-8 font-light bg-rose-800 border-rose-800 text-white mr-4' onClick={clearCart}>
-              <i className='fas fa-trash-alt text-white mr-1'></i>
-              VACIAR CARRITO
-            </button>
-          </div>
         </div>
       </>
     )

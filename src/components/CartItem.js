@@ -3,37 +3,36 @@ import React from 'react'
 const CartItem = ({productCart, removeFromCart}) => {
   return (
     <>
-      <div className='col-span-12'>
-        <div key={productCart.id} className="border-solid border-slate-300 card card-side bg-base-100 shadow-xl px-10" style={{width: "50% !important"}}>
-          <figure><img style={{height: "12rem", width: "9rem"}} src={productCart.img} alt={productCart.title} /></figure>
-          <div className="card-body text-center">
-          <h2 className="card-title ml-16">{productCart.title}</h2>
-        
-            <div>
-              <strong className="inline">Precio: </strong>
-              <p className="inline">$ {productCart.price}</p>
-            </div>
-        
-            <div>
-              <strong className="inline">Cantidad:</strong>
-              <p className="inline">{productCart.count}</p>
+      <tr>
+        <td className='text-left cart-image'>
+          <div className='grid grid-cols-2'>
+            <div className='col-span-1'>
+              <figure className='inline'><img src={productCart.img} alt={productCart.title} /></figure>
             </div>
 
-          <div>
-            <strong className="inline">Total:</strong>
-            <p className="inline">$ {productCart.count * productCart.price}</p>
-          </div> 
-
-          <div className='float-right'>
-            <button className='btn px-8 font-light bg-rose-800 border-rose-800 text-white' onClick={() => removeFromCart(productCart)}>
-              <i className='	fas fa-trash-alt text-white mr-1'></i>
-              Borrar
-            </button>
+            <div className='col-span-1 pt-10'>
+              <p className="font-normal tracking-wider leading-relaxed block">{productCart.title}</p>
+              <small className='font-mono tracking-wider leading-relaxed block special-font-color'>Categoria: {productCart.category}</small>
+            </div>
           </div>
-        
-          </div>
-        </div>
-      </div>
+        </td>
+        <td className='text-center'>
+          <p className="font-normal tracking-wider leading-relaxed align-top">$ {productCart.price}</p>
+        </td>
+        <td className='text-center'>
+          <p className="font-normal tracking-wider leading-relaxed align-top">{productCart.count}</p>
+        </td>
+        <td className='text-center'>
+          <p className="font-normal tracking-wider leading-relaxed align-top">
+            $ {productCart.count * productCart.price}
+          </p>
+        </td>
+        <td className='text-center'>
+          <button className='btn px-8 font-bold bg-transparent text-gray-300 border-none' onClick={() => removeFromCart(productCart)}>
+            <i className='fas fa-trash-alt mr-1'></i>
+          </button>
+        </td>
+      </tr>
     </>
   )
 }

@@ -15,12 +15,12 @@ const CardWidget = () => {
           </div>
         </label>
 
-        <div tabIndex="0" className="mt-3 card card-compact dropdown-content w-52 bg-base-100 shadow">
+        <div tabIndex="0" className="mt-3 card card-compact dropdown-content w-52 bg-base-100 shadow text-center">
           <div className="card-body">
             <span className="font-bold text-lg">{totalCount} Productos</span>
-            <span className="text-info">Total: ${totalPrice}</span>
-            <div className="card-actions">
-              <button style={{backgroundColor: "#688F4E", border: "1px solid #688F4E"}} className="btn px-8 font-light"><Link to="/cart">Ver carrito</Link></button>
+            <span className="special-font-color mb-2">Total: ${totalPrice}</span>
+            <div className="item-count-aditional-buttons">
+              <button className='btn-block'><Link to="/cart">Ver carrito</Link></button>
             </div>
           </div>
         </div>

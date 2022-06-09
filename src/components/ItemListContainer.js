@@ -39,14 +39,14 @@ const ItemListContainer = () => {
 
   return (
     <>
-      <div className="text-center mt-10">
-        <h1 className="font-bold text-4xl tracking-wide font-serif text-slate-700">{categoryId}</h1>
-      </div>
-
       <div className='grid grid-cols-12'>
         <div className='col-span-1'></div>
 
-        <div className='col-span-10'>
+        <div className='col-span-10 mt-5 pt-10' id='item-list-container'>
+          <div className="text-center">
+            <h1 className="font-bold text-4xl tracking-wide font-serif text-slate-700">{categoryId}</h1>
+          </div>
+
           <ItemList productsList={products}></ItemList>
         </div>
 

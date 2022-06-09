@@ -39,7 +39,7 @@ const ItemCount = ({stock, initial, handlerAdd}) => {
           <p className='inline font-light tracking-wider leading-relaxed'>¡Últimas {stock} unidades!</p>
         </div>
 
-        <div className='block mt-5' id='item-count-aditiona-buttons'>
+        <div className='block mt-5 item-count-aditional-buttons'>
           <button className='mr-3' onClick={ restoreCount }>Restaurar</button>
           <button onClick={handleAdd}>Agregar al carrito <i className="fa fa-shopping-cart"></i></button>
         </div>

@@ -16,11 +16,11 @@ const ItemDetail = ({ product }) => {
 
   return (
     <>
-      <div className='grid grid-cols-12'>
+      <div className='grid grid-cols-12 pb-20 pt-4'>
         <div className='col-span-1'></div>
 
-        <div className='col-span-10 mt-5' id="show-product">
-          <div className='d-block mt-5'>
+        <div className='col-span-10 pt-10' id="show-product">
+          <div className='d-block mb-5'>
             <a className="text-slate-800 font-semibold tracking-wider leading-relaxed"><Link to={'/'}>Inicio - </Link></a>
             <a className="text-slate-800 font-semibold tracking-wider leading-relaxed"><Link to="/todo">Productos - </Link></a>
             <p className='inline  special-font-color font-semibold tracking-wider leading-relaxed'>{product.title}</p>
@@ -46,14 +46,13 @@ const ItemDetail = ({ product }) => {
                 Proin id augue orci. Nulla a ultricies mi. Proin ut lectus eu leo posuere auctor. In facilisis feugiat nisi eu tristique. Phasellus commodo posuere ante vitae dictum.
               </p>
 
-              <div>
-                {thereAreCount ?
-                  <button className='btn card-widget-background'><Link to="/cart">Ver Carrito</Link></button>
-                : 
-                  <ItemCount handlerAdd={handlerAdd} stock={15} initial={0} />
-                }
-                
-              </div>
+              {thereAreCount ?
+                <div className='item-count-aditional-buttons'>
+                  <button><Link to="/cart">Ver Carrito</Link></button>
+                </div>
+              : 
+                <ItemCount handlerAdd={handlerAdd} stock={15} initial={0} />
+              }
             </div>
           </div>
 

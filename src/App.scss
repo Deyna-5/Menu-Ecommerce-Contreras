@@ -1,5 +1,6 @@
 // VARIABLES
 $hightlightColor: #688F4E;
+$borderTopDivisor: 1px solid lightgray;
 
 .btn-group{
   justify-content: center;
@@ -120,7 +121,6 @@ $hightlightColor: #688F4E;
 
 
 // ITEM
-
 .item-image{
   height: 20rem;
   width: 16rem;
@@ -138,7 +138,6 @@ $hightlightColor: #688F4E;
 
 
 // FOOTER
-
 #footer{
   background-color: #F9F9F9;
   p:nth-of-type(1){
@@ -147,12 +146,15 @@ $hightlightColor: #688F4E;
 }
 
 // ITEM DETAIL
-
 #show-product{
-  border-top: 1px solid lightgray;
+  border-top: $borderTopDivisor;
   img{
     width: 24rem;
   }
+}
+
+#item-list-container{
+  border-top: $borderTopDivisor;
 }
 
 #item-count-btn-group{
@@ -184,11 +186,59 @@ $hightlightColor: #688F4E;
   }
 }
 
-#item-count-aditiona-buttons{
+.item-count-aditional-buttons{
   button{
     background-color: $hightlightColor;
     color: white;
     padding: 0.5rem 1rem;
     border-radius: 0.4rem;
   }
+}
+
+// CARRITO
+#cart-view{
+  border-top: $borderTopDivisor;
+  border-bottom: $borderTopDivisor;
+  table{
+    thead{
+      border-bottom: 1px solid lightgray;
+    }
+    th{
+      background-color: white;
+    }
+    th:nth-of-type(1){
+      width: 30%;
+    }
+    th:nth-of-type(2){
+      width: 15%;
+    }
+    th:nth-of-type(3){
+      width: 15%;
+    }
+    th:nth-of-type(4){
+      width: 15%;
+    }  }
+}
+
+.cart-image{
+  img{
+    height: 7rem;
+    width: 6rem;
+  }
+  
+}
+
+.cart-invoice{
+  p{
+    width: 15rem;
+  }
+}
+
+.success-message{
+  border: 0.1rem solid $hightlightColor;
+  border-radius: 0.4rem;
+}
+
+#invoice-show{
+  border-top: $borderTopDivisor;
 }

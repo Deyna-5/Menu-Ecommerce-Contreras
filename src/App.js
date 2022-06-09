@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Cart from './components/Cart';
 import {CartContextProvider} from './context/CartContext'
 import Landing from './components/Landing';
+import Footer from './components/Footer';
 
 
 function App() {
@@ -21,8 +22,11 @@ function App() {
           <Route path='/cart' element={<Cart></Cart>}></Route>
           <Route path='/todo' element={<ItemListContainer></ItemListContainer>}></Route>
         </Routes>
+        <Footer/>
       </BrowserRouter>
     </CartContextProvider>
+
+
   );
 }
 

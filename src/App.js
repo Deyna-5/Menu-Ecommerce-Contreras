@@ -1,12 +1,12 @@
 import './App.scss';
-import { NavBar } from './components/NavBar';
-import ItemDetailContainer from './components/ItemDetailContainer';
-import ItemListContainer from './components/ItemListContainer';
+import { NavBar } from './components/layout/NavBar';
+import ItemDetailContainer from './components/item/ItemDetailContainer';
+import ItemListContainer from './components/item/ItemListContainer';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Cart from './components/Cart';
+import Cart from './components/cart/Cart';
 import {CartContextProvider} from './context/CartContext'
-import Landing from './components/Landing';
-import Footer from './components/Footer';
+import Landing from './components/landing/Landing';
+import Footer from './components/layout/Footer';
 
 
 function App() {

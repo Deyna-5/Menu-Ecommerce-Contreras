@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import useCartContext from '../context/CartContext';
+import useCartContext from '../../context/CartContext';
 import CartItem from './CartItem';
 
 // FIREBASE
 import { collection, doc, setDoc, Timestamp } from "firebase/firestore/lite"
-import {firestoreDB} from "../data/Firebase"
+import {firestoreDB} from "../../data/Firebase"
 
 const Cart = () => {
   const {cart, removeFromCart, clearCart, totalPrice, totalCount} = useCartContext()

@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import allProductsImage from '../assets/images/all-products-image.png'
-import justPlantsImage from '../assets/images/plants-category-image.png'
-import justPottery from '../assets/images/pottery-category-image.png'
+import allProductsImage from '../../assets/images/all-products-image.png'
+import justPlantsImage from '../../assets/images/plants-category-image.png'
+import justPottery from '../../assets/images/pottery-category-image.png'
 
 const ProductsCategory = () => {
   return (

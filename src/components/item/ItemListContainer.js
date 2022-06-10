@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import ItemList from './ItemList'
-import { getAllProducts as getProducts, getProductsByCategory } from '../data/Firebase'
-import Spinner from './Spinner'
+import { getAllProducts as getProducts, getProductsByCategory } from '../../data/Firebase'
+import Spinner from '../layout/Spinner'
 
 const ItemListContainer = () => {
 

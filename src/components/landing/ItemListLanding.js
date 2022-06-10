@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import ItemList from './ItemList'
-import { getAllProducts as getProducts, getProductsByCategory } from '../data/Firebase'
+import ItemList from '../item/ItemList'
+import { getAllProducts as getProducts, getProductsByCategory } from '../../data/Firebase'
 
 const ItemListLanding = () => {
   const [products, setProducts] = useState([]);

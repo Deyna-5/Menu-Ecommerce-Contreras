@@ -1,5 +1,5 @@
 import React from 'react'
-import imageLanding from '../assets/images/imageLanding.png'
+import imageLanding from '../../assets/images/imageLanding.png'
 
 const Header = (props) => {
   return (

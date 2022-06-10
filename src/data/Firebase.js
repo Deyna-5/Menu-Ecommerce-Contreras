@@ -70,14 +70,4 @@ export async function sendDataToFirebase(){
   });
 }
 
-// export async function createBuyOrder(buyOrder){
-//   const buyTimestap = Timestamp.now();
-//   const orderWithDate = {...buyOrder, date: buyTimestap}
-
-//   const myCollection = collection(firestoreDB, 'orders');
-//   const orderDoc = await addDoc(myCollection, orderWithDate);
-
-//   // return orderDoc.id
-// }
-
 export default firestoreDB

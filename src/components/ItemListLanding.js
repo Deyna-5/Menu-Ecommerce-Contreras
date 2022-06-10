@@ -4,7 +4,7 @@ import { getAllProducts as getProducts, getProductsByCategory } from '../data/Fi
 
 const ItemListLanding = () => {
   const [products, setProducts] = useState([]);
-  const categoryId = "Cactus"
+  const categoryId = 'Cactus'
 
   useEffect(() => {
     if(categoryId === undefined){
@@ -21,13 +21,13 @@ const ItemListLanding = () => {
 
   return (
     <>
-      <div className="text-center mb-10">
+      <div className='text-center mb-10'>
         <h1 className='font-bold text-4xl tracking-wide font-serif text-slate-700'>
           NUESTRAS PLANTAS
         </h1>
       </div>
 
-      <div className="grid grid-cols-12 mb-5">
+      <div className='grid grid-cols-12 mb-5'>
         <div className='col-span-1'></div>
 
         <div className='col-span-10'>

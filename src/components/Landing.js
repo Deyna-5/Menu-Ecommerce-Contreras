@@ -6,7 +6,7 @@ import ProductsCategory from './ProductsCategory';
 const Landing = () => {
   return (
     <>
-      <Header word="Plantar"></Header>
+      <Header word='Plantar'></Header>
       <ProductsCategory></ProductsCategory>
       <ItemListLanding></ItemListLanding>
     </>

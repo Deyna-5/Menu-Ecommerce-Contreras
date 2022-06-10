@@ -11,19 +11,19 @@ const CartItem = ({productCart, removeFromCart}) => {
             </div>
 
             <div className='col-span-1 pt-10'>
-              <p className="font-normal tracking-wider leading-relaxed block">{productCart.title}</p>
+              <p className='font-normal tracking-wider leading-relaxed block'>{productCart.title}</p>
               <small className='font-mono tracking-wider leading-relaxed block special-font-color'>Categoria: {productCart.category}</small>
             </div>
           </div>
         </td>
         <td className='text-center'>
-          <p className="font-normal tracking-wider leading-relaxed align-top">$ {productCart.price}</p>
+          <p className='font-normal tracking-wider leading-relaxed align-top'>$ {productCart.price}</p>
         </td>
         <td className='text-center'>
-          <p className="font-normal tracking-wider leading-relaxed align-top">{productCart.count}</p>
+          <p className='font-normal tracking-wider leading-relaxed align-top'>{productCart.count}</p>
         </td>
         <td className='text-center'>
-          <p className="font-normal tracking-wider leading-relaxed align-top">
+          <p className='font-normal tracking-wider leading-relaxed align-top'>
             $ {productCart.count * productCart.price}
           </p>
         </td>

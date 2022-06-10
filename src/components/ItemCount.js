@@ -41,7 +41,7 @@ const ItemCount = ({stock, initial, handlerAdd}) => {
 
         <div className='block mt-5 item-count-aditional-buttons'>
           <button className='mr-3' onClick={ restoreCount }>Restaurar</button>
-          <button onClick={handleAdd}>Agregar al carrito <i className="fa fa-shopping-cart"></i></button>
+          <button onClick={handleAdd}>Agregar al carrito <i className='fa fa-shopping-cart'></i></button>
         </div>
       </div>
       

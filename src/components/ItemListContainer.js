@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-// import { productsData } from '../data/productsData'
 import ItemList from './ItemList'
-import { getAllProducts as getProducts, getProductsByCategory, sendDataToFirebase } from '../data/Firebase'
+import { getAllProducts as getProducts, getProductsByCategory } from '../data/Firebase'
 import Spinner from './Spinner'
 
 const ItemListContainer = () => {
@@ -10,23 +9,7 @@ const ItemListContainer = () => {
   const [products, setProducts] = useState([]);
   const { categoryId } = useParams()
 
-  // const getProducts = (categoryId) => {
-  //   return new Promise((resolve) => {
-  //     setTimeout(() => {
-  //       if(categoryId !== undefined){
-  //         const arrayfiltred = productsData.filter((product) => {
-  //           return product.category === categoryId
-  //         })
-  //         resolve( arrayfiltred )
-  //       }else{
-  //         resolve( productsData )
-  //       }
-  //     }, 2000)
-  //   });
-  // }
-
   useEffect(() => {
-
     setTimeout(() => {
       if(categoryId === undefined){
         getProducts().then( getProductsPromise => {
@@ -39,8 +22,6 @@ const ItemListContainer = () => {
         });
       }
     }, 1000);
-    
-
   }, [categoryId])
 
   return (
@@ -52,8 +33,8 @@ const ItemListContainer = () => {
           <div className='col-span-1'></div>
 
           <div className='col-span-10 mt-5 pt-10' id='item-list-container'>
-            <div className="text-center">
-              <h1 className="font-bold text-4xl tracking-wide font-serif text-slate-700">{categoryId}</h1>
+            <div className='text-center'>
+              <h1 className='font-bold text-4xl tracking-wide font-serif text-slate-700'>{categoryId}</h1>
             </div>
 
             <ItemList productsList={products}></ItemList>
@@ -62,7 +43,6 @@ const ItemListContainer = () => {
           <div className='col-span-1'></div>
         </div>
       }
-      {/* <button onClick={sendDataToFirebase}>Send data</button> */}
     </>
   )
 }

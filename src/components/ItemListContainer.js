@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 // import { productsData } from '../data/productsData'
 import ItemList from './ItemList'
 import { getAllProducts as getProducts, getProductsByCategory, sendDataToFirebase } from '../data/Firebase'
+import Spinner from './Spinner'
 
 const ItemListContainer = () => {
 
@@ -25,34 +26,42 @@ const ItemListContainer = () => {
   // }
 
   useEffect(() => {
-    if(categoryId === undefined){
-      getProducts().then( getProductsPromise => {
-        setProducts(getProductsPromise)
-      });
-    }
-    else{
-      getProductsByCategory(categoryId).then( getProductsPromise => {
-        setProducts(getProductsPromise)
-      });
-    }
+
+    setTimeout(() => {
+      if(categoryId === undefined){
+        getProducts().then( getProductsPromise => {
+          setProducts(getProductsPromise)
+        });
+      }
+      else{
+        getProductsByCategory(categoryId).then( getProductsPromise => {
+          setProducts(getProductsPromise)
+        });
+      }
+    }, 1000);
+    
+
   }, [categoryId])
 
   return (
     <>
-      <div className='grid grid-cols-12'>
-        <div className='col-span-1'></div>
+      {products.length == 0 ? 
+        <Spinner></Spinner>
+      :
+        <div className='grid grid-cols-12'>
+          <div className='col-span-1'></div>
 
-        <div className='col-span-10 mt-5 pt-10' id='item-list-container'>
-          <div className="text-center">
-            <h1 className="font-bold text-4xl tracking-wide font-serif text-slate-700">{categoryId}</h1>
+          <div className='col-span-10 mt-5 pt-10' id='item-list-container'>
+            <div className="text-center">
+              <h1 className="font-bold text-4xl tracking-wide font-serif text-slate-700">{categoryId}</h1>
+            </div>
+
+            <ItemList productsList={products}></ItemList>
           </div>
 
-          <ItemList productsList={products}></ItemList>
+          <div className='col-span-1'></div>
         </div>
-
-        <div className='col-span-1'></div>
-      </div>
-
+      }
       {/* <button onClick={sendDataToFirebase}>Send data</button> */}
     </>
   )

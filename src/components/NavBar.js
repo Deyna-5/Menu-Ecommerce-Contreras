@@ -7,12 +7,12 @@ export const NavBar = () => {
     <>
       <div className="navbar bg-transparent px-10 grid grid-cols-4">
         <div className="px-10">
-          <a className="btn btn-ghost font-bold font-serif normal-case text-xl plant-shop-logo"><Link to={'/'}>PlantShop.</Link></a>
+          <Link to={'/'}><a className="btn btn-ghost font-bold font-serif normal-case text-xl plant-shop-logo">PlantShop.</a></Link>
         </div>
 
         <div className="col-span-2">
           <ul className="menu menu-horizontal p-0">
-            <li><a className="btn btn-ghost text-slate-500"><Link to={'/'}>INICIO</Link></a></li>
+            <Link to={'/'}><li><a className="btn btn-ghost text-slate-500">INICIO</a></li></Link>
             <li tabIndex="0">
               <a className="btn btn-ghost text-slate-500">
                 TIENDA

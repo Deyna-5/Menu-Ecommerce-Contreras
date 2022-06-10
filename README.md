@@ -5,7 +5,7 @@
 * **Profesor:** Adrián Escalante
 * **Tutor:** Santiago Salkin
 
-# Acerca del proyecto
+## Acerca del proyecto
 Proyecto para el curso de coderHouse ReactJs. Consiste en un E-commerce para una tienda de plantas (suculentas) y macetas.
 
 ## Comenzando 🚀
@@ -46,6 +46,8 @@ Estas instrucciones te permitirán obtener una copia del proyecto en funcionamie
 
 ## Link para la aplicación en Vercel 🌐
 [Deploy Vercel](https://proyecto-react-hofh3hz6h-deyna-5.vercel.app/ )
+
+---
 
 
 **Creado por** *Deyna Contreras* 

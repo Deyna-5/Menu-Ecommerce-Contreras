@@ -10,8 +10,10 @@ const ItemDetail = ({ product }) => {
   const { addToCart } = useCartContext();
 
   const handlerAdd = (count) => { 
-    setThereAreCount(true);
-    addToCart(product, count)
+    if(count > 0){
+      setThereAreCount(true);
+      addToCart(product, count)
+    }
   };
 
   return (

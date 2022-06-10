@@ -21,7 +21,7 @@ const ItemListContainer = () => {
           setProducts(getProductsPromise)
         });
       }
-    }, 1000);
+    }, 500);
   }, [categoryId])
 
   return (

@@ -14,7 +14,7 @@ const ItemDetailContainer = () => {
       getProductById(productId).then(getProductPromise => {
         setProduct(getProductPromise)
       });
-    }, 1000);
+    }, 500);
   }, [productId])
 
   return (

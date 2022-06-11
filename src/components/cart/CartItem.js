@@ -28,8 +28,8 @@ const CartItem = ({productCart, removeFromCart}) => {
           </p>
         </td>
         <td className='text-center'>
-          <button className='btn px-8 font-bold bg-transparent text-gray-300 border-none' onClick={() => removeFromCart(productCart)}>
-            <i className='fas fa-trash-alt mr-1'></i>
+          <button className='btn px-8 font-bold bg-transparent text-gray-400 border-none' onClick={() => removeFromCart(productCart)}>
+            <i className='fas fa-trash-alt mr-1'></i> borrar
           </button>
         </td>
       </tr>

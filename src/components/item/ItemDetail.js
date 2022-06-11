@@ -53,7 +53,7 @@ const ItemDetail = ({ product }) => {
                   <button><Link to='/cart'>Ver Carrito</Link></button>
                 </div>
               : 
-                <ItemCount handlerAdd={handlerAdd} stock={15} initial={0} />
+                <ItemCount handlerAdd={handlerAdd} stock={15} initial={1} />
               }
             </div>
           </div>

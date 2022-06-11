@@ -11,8 +11,8 @@ const ItemCount = ({stock, initial, handlerAdd}) => {
   };
 
   const subtractCount = () => {
-    if(count <= 0){
-      setcount(0)
+    if(count <= 1){
+      setcount(1)
     }else{
       setcount(count - 1);
     }

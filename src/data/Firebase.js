@@ -3,12 +3,12 @@ import { collection, doc, getDoc, getDocs, getFirestore, query, setDoc, where, T
 import { productsData } from "./productsData";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyA4FEpQjN47aM7inc0CSD1Lc96SjpNmpg8",
-  authDomain: "plantshop-e23fa.firebaseapp.com",
-  projectId: "plantshop-e23fa",
-  storageBucket: "plantshop-e23fa.appspot.com",
-  messagingSenderId: "844492312229",
-  appId: "1:844492312229:web:e0e693f614f69780ec874c"
+  apiKey: "AIzaSyB21GCp_n7X0RbqInJbFI2lHHohuYHCN8g",
+  authDomain: "plantshop2-74f63.firebaseapp.com",
+  projectId: "plantshop2-74f63",
+  storageBucket: "plantshop2-74f63.appspot.com",
+  messagingSenderId: "216145699029",
+  appId: "1:216145699029:web:dba015539a36ca72de425c"
 };
 
 const app = initializeApp(firebaseConfig);
